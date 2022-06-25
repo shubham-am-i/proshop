@@ -1,0 +1,12 @@
+.rating span {
+  margin-left: 0.1rem;
+}
+h3 {
+  padding: 1rem 0;
+}
+
+.add-to-cart {
+  background-color: #f7ca00;
+  padding: 0.3rem;
+  font-size: 0.8rem;
+}
