@@ -7,7 +7,6 @@ import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
 
 const HomeScreen = () => {
-  console.dir(document)
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => state.productList)
