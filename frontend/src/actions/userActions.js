@@ -12,7 +12,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     }
 
-    const { data } = await axios.post('/api/user/login', { email, password }, config)
+    const { data } = await axios.post('/api/users/login', { email, password }, config)
 
     dispatch({
       type: 'USER_LOGIN_SUCCESS',
@@ -23,7 +23,7 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: 'USER_LOGIN_FAIL',
-      Payload:
+      payload:
         error.response && error.response.data.message
           ? error.response.data.message
           : error.response,
