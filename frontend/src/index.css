@@ -24,3 +24,8 @@ h2 {
   padding: 0.3rem;
   font-size: 0.8rem;
 }
+/* sign in & register buttons */
+.button {
+  margin: 20px 0;
+  border-radius: 3px;
+}
