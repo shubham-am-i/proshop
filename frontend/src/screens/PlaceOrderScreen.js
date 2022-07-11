@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
+import { createOrder } from '../actions/orderActions'
 
 const PlaceOrderScreen = () => {
+  const navigate = useNavigate()
   const cart = useSelector((state) => state.cart)
 
   // calculate prices
@@ -14,8 +15,31 @@ const PlaceOrderScreen = () => {
   const shipping = cart.itemsPrice > 5000 ? 0 : 600
   const tax = 0
   const total = Number(itemsPrice + shipping).toFixed(2)
+
+  const dispatch = useDispatch()
+  // get orderCreate State from redux
+  const orderCreate = useSelector((state) => state.orderCreate)
+  const { order, success, error } = orderCreate
+
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`)
+    }
+    // eslint-disable-next-line
+  }, [navigate, success])
+
   const placeOrderHandler = () => {
-    console.log('order')
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice,
+        shipping,
+        tax,
+        total,
+      })
+    )
   }
 
   return (

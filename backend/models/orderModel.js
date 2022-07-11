@@ -22,7 +22,7 @@ const orderSchema = mongoose.Schema(
     ],
     shippingAddress: {
       address: { type: String, required: true },
-      address: { type: String, required: true },
+      city: { type: String, required: true },
       postalCode: { type: Number, required: true },
       country: { type: String, required: true },
     },
@@ -36,17 +36,17 @@ const orderSchema = mongoose.Schema(
       update_time: { type: String },
       email_address: { type: String },
     },
-    taxPrice: {
+    tax: {
       type: Number,
       required: true,
       default: 0.0,
     },
-    shippingPrice: {
+    shipping: {
       type: Number,
       required: true,
       default: 0.0,
     },
-    totolPrice: {
+    total: {
       type: Number,
       required: true,
       default: 0.0,
@@ -70,7 +70,6 @@ const orderSchema = mongoose.Schema(
   },
   { timestamps: true }
 )
-
 
 const Order = mongoose.model('Order', orderSchema)
 
