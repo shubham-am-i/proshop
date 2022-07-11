@@ -26,7 +26,7 @@ const OrderScreen = () => {
     if (!order || order._id !== orderId) {
       dispatch(getOrderDetails(orderId))
     }
-  }, [order, orderId])
+  }, [dispatch, order, orderId])
 
   return loading ? (
     <Loader />
@@ -75,7 +75,7 @@ const OrderScreen = () => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>Purchase Items</h2>
               {order.orderItems.length === 0 ? (
                 <Message>Order is empty</Message>
               ) : (
