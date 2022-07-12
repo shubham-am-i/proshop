@@ -7,6 +7,7 @@ import FormContainer from '../components/FormContainer'
 import { savePaymentMethod } from '../actions/cartActions'
 
 const PaymentScreen = () => {
+  const navigate = useNavigate()
   const cart = useSelector((state) => state.cart)
   const { shippingAddress } = cart
 
@@ -15,7 +16,6 @@ const PaymentScreen = () => {
   const [paymentMethod, setPaymentMethod] = useState('PayPal')
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const submitHandler = (e) => {
     e.preventDefault()
