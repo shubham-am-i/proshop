@@ -1,7 +1,7 @@
 const products = [
   {
     name: 'Airpods Wireless Bluetooth Headphones',
-    image: '/images/airpods.jpg',
+    image: '/images/airpods.webp',
     description:
       'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
     brand: 'Apple',
@@ -23,18 +23,7 @@ const products = [
     rating: 6,
     numReviews: 27,
   },
-  {
-    name: 'Apple iPhone 13 (128GB) - Midnight',
-    image: '/images/phone.jpg',
-    description:
-      'Introducing the iPhone 13 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life',
-    brand: 'Apple',
-    category: 'Electronics',
-    price: 70990,
-    countInStock: 7,
-    rating: 4.0,
-    numReviews: 8,
-  },
+
   {
     name: 'Cannon EOS 80D DSLR Camera',
     image: '/images/camera.jpg',
@@ -59,6 +48,31 @@ const products = [
     rating: 4,
     numReviews: 15,
   },
+  {
+    name: 'JBL Quantum 100, Wired Over Ear Gaming',
+    image: '/images/headphones.webp',
+    description:
+      '40mm dynamic drivers delivering JBL QuantunSound Signature, our signature audio designed to experience the tiniest footsteps to loudest explosions. Detachable Voice focus Directional Boom mic with mute features for crystal clear communications',
+    brand: 'JBL',
+    category: 'Electronics',
+    price: 1999,
+    countInStock: 4,
+    rating: 4,
+    numReviews: 8,
+  },
+  {
+    name: 'Samsung QA55Q8C (55-inch) Ultra HD 4K Curved QLED Smart TV',
+    image: '/images/samsung.webp',
+    description:
+      'Samsung QA55Q8C (55-inch) Ultra HD 4K Curved QLED Smart TV price in India starts from ₹3,44,900. It is available at lowest price on Flipkart in India as on Jul 11, 2022. Take a look at Samsung QA55Q8C (55-inch) Ultra HD 4K Curved QLED Smart TV detailed specifications and features.',
+    brand: 'Samsung',
+    category: 'Electronics',
+    price: 34000,
+    countInStock: 9,
+    rating: 2.5,
+    numReviews: 10,
+  },
+
   {
     name: 'Sony Playstation 4 Pro White Version',
     image: '/images/playstation.jpg',
@@ -108,17 +122,30 @@ const products = [
     rating: 4,
     numReviews: 12,
   },
+
   {
-    name: 'Kodak 139 cm (55 inches) 4K Ultra HD Smart LED TV 55CA0909 (Black) (2021 Model) | With Dolby Digital Plus & DTS Tru Surround',
-    image: '/images/kodak.webp',
+    name: 'Apple iPhone 13 (128GB) - Midnight',
+    image: '/images/iphone.png',
     description:
-      'Resolution : Ultra HD 4k (3840 X 2160) resolution | Refresh Rate : 60 Hertz | 178 Degree wide viewing angle.3 HDMI ports to connect set top box, Blu-ray speakers or a gaming console | 2 USB ports to connect hard drives or other USB devices.',
-    brand: 'Kodak',
+      'Introducing the iPhone 13 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life',
+    brand: 'Apple',
     category: 'Electronics',
-    price: 34999,
-    countInStock: 9,
-    rating: 2.5,
-    numReviews: 10,
+    price: 70990,
+    countInStock: 7,
+    rating: 4.0,
+    numReviews: 8,
+  },
+  {
+    name: 'Mi Smart Watch for Men Women Boys Girls, Touch Screen Bluetooth',
+    image: '/images/watch.webp',
+    description:
+      '2022 Upgraded Smart Watch? Equipped with 1.33 inches TFT-LCD full touch screen, make a great breakthrough in button touch fitness watch and advanced health smartwatch that helps you tune in to your body with tools for sleep tracking, sport record, menstrual health tracking, relax guidance, alarm, timer and so on.',
+    brand: 'Xiomi',
+    category: 'Electronics',
+    price: 579,
+    countInStock: 3,
+    rating: 3,
+    numReviews: 14,
   },
 ]
 
