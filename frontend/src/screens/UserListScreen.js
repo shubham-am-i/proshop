@@ -43,7 +43,8 @@ const UserListScreen = () => {
               <td>NAME</td>
               <td>EMAIL</td>
               <td>ADMIN</td>
-              <td></td>
+              <td>EDIT USER</td>
+              <td>DELETE</td>
             </tr>
           </thead>
           <tbody>
@@ -63,13 +64,15 @@ const UserListScreen = () => {
                 </td>
                 <td>
                   <LinkContainer to={`/admin/user/${user._id}/edit`}>
-                    <Button variant='light' className='btn-sm'>
+                    <Button variant='light' className='btn-sm corner-rounded'>
                       <i className='fas fa-edit'></i>
                     </Button>
                   </LinkContainer>
+                </td>
+                <td>
                   <Button
                     variant='danger '
-                    className='btn-sm'
+                    className='btn-sm corner-rounded'
                     onClick={() => deleteHandler(user._id)}>
                     <i className='fas fa-trash'></i>
                   </Button>
