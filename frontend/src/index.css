@@ -33,3 +33,9 @@ h2 {
 .corner-rounded {
   border-radius: 3px;
 }
+
+.carousel-image {
+  height: 60vh;
+  width: 100%;
+  background-size: contain;
+}

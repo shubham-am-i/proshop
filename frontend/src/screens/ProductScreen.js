@@ -181,7 +181,7 @@ const ProductScreen = () => {
                           value={comment}
                           onChange={(e) => setComment(e.target.value)}></Form.Control>
                       </Form.Group>
-                      <Button type='submit' variant='primary'>
+                      <Button type='submit' variant='primary' className='button'>
                         Submit
                       </Button>
                     </Form>

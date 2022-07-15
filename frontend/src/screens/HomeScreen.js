@@ -6,6 +6,7 @@ import Product from '../components/Product'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
+import ProductCarousel from '../components/ProductCarousel'
 
 const HomeScreen = () => {
   const { keyword } = useParams()
@@ -20,7 +21,8 @@ const HomeScreen = () => {
 
   return (
     <>
-      <h1>Latest Products</h1>
+      <ProductCarousel />
+      <h3 className='mt-3'>Latest Products</h3>
       {loading ? (
         <Loader />
       ) : error ? (

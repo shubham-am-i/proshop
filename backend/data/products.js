@@ -1,5 +1,17 @@
 const products = [
   {
+    name: 'Airpods Wireless Bluetooth Headphones',
+    image: '/images/airpods.webp',
+    description:
+      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
+    brand: 'Apple',
+    category: 'Electronics',
+    price: 9000,
+    countInStock: 10,
+    rating: 4.5,
+    numReviews: 12,
+  },
+  {
     name: 'Lenovo Yoga 9i (14)',
     image: '/images/lenovo.webp',
     description:
@@ -13,18 +25,6 @@ const products = [
   },
 
   {
-    name: 'Motorola edge 30',
-    image: '/images/moto.png',
-    description:
-      'The worlds thinnest 5G smartphone, motorola edge 30 at just 6.79mm is packed with amazing technology inside and designed for comfort outside with just 155 gm light making it Indias lightest 5G smartphone in the segment. With IP52 Water - repellent 1 and eye-catching design, your phone reveals subtle patterns when you tilt it from side to side.Plus, access it with just a touch using the in -display fingerprint reader.',
-    brand: 'Motorola',
-    category: 'Electronics',
-    price: 27999,
-    countInStock: 5,
-    rating: 4,
-    numReviews: 15,
-  },
-  {
     name: 'JBL Quantum 100, Wired Over Ear Gaming',
     image: '/images/headphones.webp',
     description:
@@ -35,6 +35,18 @@ const products = [
     countInStock: 4,
     rating: 4,
     numReviews: 8,
+  },
+  {
+    name: 'Motorola edge 30',
+    image: '/images/moto.png',
+    description:
+      'The worlds thinnest 5G smartphone, motorola edge 30 at just 6.79mm is packed with amazing technology inside and designed for comfort outside with just 155 gm light making it Indias lightest 5G smartphone in the segment. With IP52 Water - repellent 1 and eye-catching design, your phone reveals subtle patterns when you tilt it from side to side.Plus, access it with just a touch using the in -display fingerprint reader.',
+    brand: 'Motorola',
+    category: 'Electronics',
+    price: 27999,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 15,
   },
   {
     name: 'Samsung QA55Q8C (55-inch) Ultra HD 4K Curved QLED Smart TV',
@@ -48,31 +60,20 @@ const products = [
     rating: 2.5,
     numReviews: 10,
   },
-  {
-    name: 'Airpods Wireless Bluetooth Headphones',
-    image: '/images/airpods.webp',
-    description:
-      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
-    brand: 'Apple',
-    category: 'Electronics',
-    price: 9000,
-    countInStock: 10,
-    rating: 4.5,
-    numReviews: 12,
-  },
 
   {
-    name: 'Sony Playstation 4 Pro White Version',
-    image: '/images/playstation.jpg',
+    name: 'Keychron K2 Wireless Bluetooth/USB Wired Gaming Mechanical Keyboard',
+    image: '/images/keyboard.jpg',
     description:
-      'The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music',
-    brand: 'Sony',
+      'Made with precision.It is designed keeping your choice and requirement in mind. Hassle-free usage',
+    brand: 'Keychron',
     category: 'Electronics',
-    price: 3999,
-    countInStock: 2,
+    price: 15418,
+    countInStock: 3,
     rating: 5,
     numReviews: 12,
   },
+
   {
     name: 'Cannon EOS 80D DSLR Camera',
     image: '/images/camera.jpg',
@@ -146,6 +147,18 @@ const products = [
     countInStock: 3,
     rating: 3,
     numReviews: 14,
+  },
+  {
+    name: 'Sony Playstation 4 Pro White Version',
+    image: '/images/playstation.jpg',
+    description:
+      'The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music',
+    brand: 'Sony',
+    category: 'Electronics',
+    price: 3999,
+    countInStock: 2,
+    rating: 5,
+    numReviews: 12,
   },
 ]
 
