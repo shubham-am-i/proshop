@@ -1,17 +1,5 @@
 const products = [
   {
-    name: 'Airpods Wireless Bluetooth Headphones',
-    image: '/images/airpods.webp',
-    description:
-      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
-    brand: 'Apple',
-    category: 'Electronics',
-    price: 9000,
-    countInStock: 10,
-    rating: 4.5,
-    numReviews: 12,
-  },
-  {
     name: 'Lenovo Yoga 9i (14)',
     image: '/images/lenovo.webp',
     description:
@@ -24,18 +12,6 @@ const products = [
     numReviews: 27,
   },
 
-  {
-    name: 'Cannon EOS 80D DSLR Camera',
-    image: '/images/camera.jpg',
-    description:
-      'Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design',
-    brand: 'Cannon',
-    category: 'Electronics',
-    price: 92999,
-    countInStock: 5,
-    rating: 3,
-    numReviews: 12,
-  },
   {
     name: 'Motorola edge 30',
     image: '/images/moto.png',
@@ -72,6 +48,18 @@ const products = [
     rating: 2.5,
     numReviews: 10,
   },
+  {
+    name: 'Airpods Wireless Bluetooth Headphones',
+    image: '/images/airpods.webp',
+    description:
+      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
+    brand: 'Apple',
+    category: 'Electronics',
+    price: 9000,
+    countInStock: 10,
+    rating: 4.5,
+    numReviews: 12,
+  },
 
   {
     name: 'Sony Playstation 4 Pro White Version',
@@ -83,6 +71,18 @@ const products = [
     price: 3999,
     countInStock: 2,
     rating: 5,
+    numReviews: 12,
+  },
+  {
+    name: 'Cannon EOS 80D DSLR Camera',
+    image: '/images/camera.jpg',
+    description:
+      'Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design',
+    brand: 'Cannon',
+    category: 'Electronics',
+    price: 92999,
+    countInStock: 5,
+    rating: 3,
     numReviews: 12,
   },
   {
