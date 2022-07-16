@@ -4,8 +4,12 @@
   "description": "MERN shopping cart app",
   "main": "server.js",
   "type": "module",
+  "engines": {
+    "node": "16.15.1"
+  },
   "scripts": {
-    "start": "node backend/server",
+    "start": "node backend/server.js",
+    "build": "cd frontend && npm install && npm run build",
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",

@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { PayPalButton } from 'react-paypal-button-v2'
-
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
+import { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,7 +14,7 @@ const OrderScreen = () => {
 
   const navigate = useNavigate()
 
-  const [skdReady, setSkdReady] = useState(false)
+  const [skdReady, setSkdReady] = useState('')
 
   const dispatch = useDispatch()
   // get orderCreate State from redux
@@ -41,16 +40,18 @@ const OrderScreen = () => {
     if (!userInfo) {
       navigate('/login')
     }
+
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal')
-      const script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-      script.async = true
-      script.onload = () => {
-        setSkdReady(true)
-      }
-      document.body.appendChild(script)
+      setSkdReady(clientId)
+      // const script = document.createElement('script')
+      // script.type = 'text/javascript'
+      // script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
+      // script.async = true
+      // script.onload = () => {
+      //   setSkdReady(true)
+      // }
+      // document.body.appendChild(script)
     }
 
     if (!order || successPay || successDeliver) {
@@ -59,9 +60,10 @@ const OrderScreen = () => {
       dispatch(getOrderDetails(orderId))
     } else if (!order.isPaid) {
       addPayPalScript()
-    } else {
-      setSkdReady(true)
     }
+    //  else {
+    //   setSkdReady(true)
+    // }
   }, [dispatch, order, orderId, successPay, successDeliver])
 
   const successPaymentHandler = (paymentResult) => {
@@ -177,16 +179,33 @@ const OrderScreen = () => {
                   <Col>&#8377;{order.total}</Col>
                 </Row>
               </ListGroup.Item>
+
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
                   {!skdReady ? (
                     <Loader />
                   ) : (
-                    <PayPalButton
-                      amount={order.total}
-                      onSuccess={successPaymentHandler}
-                    />
+                    <PayPalScriptProvider options={{ 'client-id': skdReady }}>
+                      <PayPalButtons
+                        createOrder={(data, actions) => {
+                          return actions.order.create({
+                            purchase_units: [
+                              {
+                                amount: {
+                                  value: order.total,
+                                },
+                              },
+                            ],
+                          })
+                        }}
+                        onApprove={(data, actions) => {
+                          return actions.order.capture().then((details) => {
+                            successPaymentHandler(details)
+                          })
+                        }}
+                      />
+                    </PayPalScriptProvider>
                   )}
                 </ListGroup.Item>
               )}
