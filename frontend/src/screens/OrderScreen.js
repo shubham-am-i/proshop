@@ -14,7 +14,7 @@ const OrderScreen = () => {
 
   const navigate = useNavigate()
 
-  const [skdReady, setSkdReady] = useState('')
+ const [clientId, setClientId] = useState('')
 
   const dispatch = useDispatch()
   // get orderCreate State from redux
@@ -43,7 +43,7 @@ const OrderScreen = () => {
 
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal')
-      setSkdReady(clientId)
+      setClientId(clientId)
       // const script = document.createElement('script')
       // script.type = 'text/javascript'
       // script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
@@ -61,10 +61,8 @@ const OrderScreen = () => {
     } else if (!order.isPaid) {
       addPayPalScript()
     }
-    //  else {
-    //   setSkdReady(true)
-    // }
-  }, [dispatch, order, orderId, successPay, successDeliver])
+   
+  }, [dispatch, order, orderId, successPay, successDeliver, userInfo, navigate])
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)
@@ -183,10 +181,10 @@ const OrderScreen = () => {
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
-                  {!skdReady ? (
+                  {!clientId ? (
                     <Loader />
                   ) : (
-                    <PayPalScriptProvider options={{ 'client-id': skdReady }}>
+                    <PayPalScriptProvider options={{ 'client-id': clientId }}>
                       <PayPalButtons
                         createOrder={(data, actions) => {
                           return actions.order.create({

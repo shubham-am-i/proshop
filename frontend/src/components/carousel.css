@@ -1,12 +1,12 @@
 .carousel-image {
-  height: 50vh;
+  height: 60vh;
   width: 100%;
   background-size: contain;
 }
 
 .carousel {
   width: 90%;
-  height: 50vh;
+  height: 60vh;
   margin: auto;
 }
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Form, Button, Placeholder } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
 const SearchBox = () => {
   const navigate = useNavigate()
