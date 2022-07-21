@@ -7,6 +7,7 @@ import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
+const PORT = 5000
 
 
 
@@ -38,7 +39,6 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = 5000
 app.listen(
   PORT,
   console.log(
