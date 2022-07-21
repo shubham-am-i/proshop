@@ -175,7 +175,7 @@ const OrderScreen = () => {
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
                  
-                    <PayPalScriptProvider options={{ 'client-id': ASYIjuTePoYB_xjZC9_WlVyVUcz1maxcmqQdGVDLlVgQ1UIN8qhNUrSDbdfzz039aWcI36gLfKfVVSk4 }}>
+                    <PayPalScriptProvider options={{ 'client-id': 'ASYIjuTePoYB_xjZC9_WlVyVUcz1maxcmqQdGVDLlVgQ1UIN8qhNUrSDbdfzz039aWcI36gLfKfVVSk4' }}>
                       <PayPalButtons
                         createOrder={(data, actions) => {
                           return actions.order.create({
