@@ -14,7 +14,7 @@ const OrderScreen = () => {
 
   const navigate = useNavigate()
 
- const [clientId, setClientId] = useState('')
+//  const [clientId, setClientId] = useState('')
 
   const dispatch = useDispatch()
   // get orderCreate State from redux
@@ -41,26 +41,19 @@ const OrderScreen = () => {
       navigate('/login')
     }
 
-    const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get('/api/config/paypal')
-      setClientId(clientId)
-      // const script = document.createElement('script')
-      // script.type = 'text/javascript'
-      // script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-      // script.async = true
-      // script.onload = () => {
-      //   setSkdReady(true)
-      // }
-      // document.body.appendChild(script)
-    }
+    // const addPayPalScript = async () => {
+    //   const { data: clientId } = await axios.get('/api/config/paypal')
+    //   setClientId(clientId)
+      
+    // }
 
     if (!order || successPay || successDeliver) {
       dispatch({ type: 'ORDER_PAY_RESET' })
       dispatch({ type: 'ORDER_DELIVER_RESET' })
       dispatch(getOrderDetails(orderId))
-    } else if (!order.isPaid) {
-      addPayPalScript()
-    }
+     }// else if (!order.isPaid) {
+    //   addPayPalScript()
+    // }
    
   }, [dispatch, order, orderId, successPay, successDeliver, userInfo, navigate])
 
@@ -181,10 +174,8 @@ const OrderScreen = () => {
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
-                  {!clientId ? (
-                    <Loader />
-                  ) : (
-                    <PayPalScriptProvider options={{ 'client-id': clientId }}>
+                 
+                    <PayPalScriptProvider options={{ 'client-id': ASYIjuTePoYB_xjZC9_WlVyVUcz1maxcmqQdGVDLlVgQ1UIN8qhNUrSDbdfzz039aWcI36gLfKfVVSk4 }}>
                       <PayPalButtons
                         createOrder={(data, actions) => {
                           return actions.order.create({
@@ -204,7 +195,7 @@ const OrderScreen = () => {
                         }}
                       />
                     </PayPalScriptProvider>
-                  )}
+                  
                 </ListGroup.Item>
               )}
               {loadingDeliver && <Loader />}
