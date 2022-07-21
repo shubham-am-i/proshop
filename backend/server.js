@@ -1,6 +1,5 @@
 import express from 'express'
 import path from 'path'
-import dotenv from 'dotenv'
 import colors from 'colors'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
@@ -9,7 +8,7 @@ import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 
-dotenv.config()
+
 
 connectDB()
 
@@ -47,6 +46,6 @@ const PORT = 5000
 app.listen(
   PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+    `Server running on port ${PORT}`.yellow.bold
   )
 )
