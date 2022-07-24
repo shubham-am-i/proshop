@@ -1,6 +1,5 @@
-import axios from 'axios'
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,7 +13,7 @@ const OrderScreen = () => {
 
   const navigate = useNavigate()
 
-//  const [clientId, setClientId] = useState('')
+  //  const [clientId, setClientId] = useState('')
 
   const dispatch = useDispatch()
   // get orderCreate State from redux
@@ -44,17 +43,16 @@ const OrderScreen = () => {
     // const addPayPalScript = async () => {
     //   const { data: clientId } = await axios.get('/api/config/paypal')
     //   setClientId(clientId)
-      
+
     // }
 
     if (!order || successPay || successDeliver) {
       dispatch({ type: 'ORDER_PAY_RESET' })
       dispatch({ type: 'ORDER_DELIVER_RESET' })
       dispatch(getOrderDetails(orderId))
-     }// else if (!order.isPaid) {
+    } // else if (!order.isPaid) {
     //   addPayPalScript()
     // }
-   
   }, [dispatch, order, orderId, successPay, successDeliver, userInfo, navigate])
 
   const successPaymentHandler = (paymentResult) => {
@@ -174,28 +172,31 @@ const OrderScreen = () => {
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
-                 
-                    <PayPalScriptProvider options={{ 'client-id': 'ASYIjuTePoYB_xjZC9_WlVyVUcz1maxcmqQdGVDLlVgQ1UIN8qhNUrSDbdfzz039aWcI36gLfKfVVSk4' }}>
-                      <PayPalButtons
-                        createOrder={(data, actions) => {
-                          return actions.order.create({
-                            purchase_units: [
-                              {
-                                amount: {
-                                  value: order.total,
-                                },
+
+                  <PayPalScriptProvider
+                    options={{
+                      'client-id':
+                        'ASYIjuTePoYB_xjZC9_WlVyVUcz1maxcmqQdGVDLlVgQ1UIN8qhNUrSDbdfzz039aWcI36gLfKfVVSk4',
+                    }}>
+                    <PayPalButtons
+                      createOrder={(data, actions) => {
+                        return actions.order.create({
+                          purchase_units: [
+                            {
+                              amount: {
+                                value: order.total,
                               },
-                            ],
-                          })
-                        }}
-                        onApprove={(data, actions) => {
-                          return actions.order.capture().then((details) => {
-                            successPaymentHandler(details)
-                          })
-                        }}
-                      />
-                    </PayPalScriptProvider>
-                  
+                            },
+                          ],
+                        })
+                      }}
+                      onApprove={(data, actions) => {
+                        return actions.order.capture().then((details) => {
+                          successPaymentHandler(details)
+                        })
+                      }}
+                    />
+                  </PayPalScriptProvider>
                 </ListGroup.Item>
               )}
               {loadingDeliver && <Loader />}

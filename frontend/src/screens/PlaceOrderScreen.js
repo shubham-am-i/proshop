@@ -24,6 +24,8 @@ const PlaceOrderScreen = () => {
   useEffect(() => {
     if (success) {
       navigate(`/order/${order._id}`)
+      dispatch({ type: 'USER_DETAILS_RESET' })
+      dispatch({ type: 'ORDER_CREATE_RESET' })
     }
     // eslint-disable-next-line
   }, [navigate, success])

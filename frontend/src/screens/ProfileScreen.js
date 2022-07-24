@@ -8,7 +8,7 @@ import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
 
-const RegisterScreen = () => {
+const ProfileScreen = () => {
   const navigate = useNavigate()
 
   const [name, setName] = useState('')
@@ -163,4 +163,4 @@ const RegisterScreen = () => {
   )
 }
 
-export default RegisterScreen
+export default ProfileScreen

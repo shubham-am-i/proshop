@@ -16,13 +16,13 @@ const LoginScreen = () => {
 
   const userLogin = useSelector((state) => state.userLogin)
   const { loading, error, userInfo } = userLogin
-  // console.log(error)
 
   const { search } = useLocation()
   const redirect = search ? search.split('=')[1] : '/'
 
   useEffect(() => {
     if (userInfo) {
+      console.log( userInfo)
       navigate(redirect)
     }
   }, [navigate, userInfo, redirect])
