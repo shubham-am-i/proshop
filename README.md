@@ -2,7 +2,8 @@
 https://ecomm-proshop-app.herokuapp.com/
 
 > eCommerce platform built with the MERN stack & Redux.
-![proshop](https://user-images.githubusercontent.com/88419331/180167839-68a7a1c3-6e3b-491e-85d5-4a3f6d8158e1.png)
+![2022-11-27 (2)](https://user-images.githubusercontent.com/88419331/204145936-0b1a6c11-4ec8-4323-9223-5e2f53c8b0ef.png)
+
 
 ## Features
 
@@ -30,7 +31,6 @@ NODE_ENV = development
 PORT = 5000
 MONGO_URI = your mongodb uri
 JWT_SECRET = 'abc123'
-PAYPAL_CLIENT_ID = your paypal client id
 ```
 
 ### Install Dependencies (frontend & backend)
@@ -57,8 +57,6 @@ npm run server
 cd frontend
 npm run build
 ```
-
-There is a Heroku postbuild script, so if you push to Heroku, no need to build manually for deployment to Heroku
 
 ### Seed Database
 
