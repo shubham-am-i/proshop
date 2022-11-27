@@ -21,7 +21,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      <ProductCarousel />
+      {!keyword && <ProductCarousel />}
       <h3 className='mt-3'>Latest Products</h3>
       {loading ? (
         <Loader />

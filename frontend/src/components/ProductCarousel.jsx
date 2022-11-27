@@ -1,37 +1,39 @@
-// import {useEffect} from 'react'
-import { Carousel } from 'react-bootstrap'
-import './carousel.css'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { Carousel, Image } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import Loader from './Loader'
+import Message from './Message'
+import { listTopProducts } from '../actions/productActions'
+
 const ProductCarousel = () => {
-  return (
-    <Carousel className='carousel'>
-      <Carousel.Item interval={3000}>
-        <img src='./images/dell.jpg' alt='First slide' className='carousel-image' />
-      </Carousel.Item>
+  const dispatch = useDispatch()
 
-      <Carousel.Item interval={3000}>
-        <img src='./images/prime_day_mobile.webp' alt='Second slide' className='carousel-image' />
-      </Carousel.Item>
+  const productTopRated = useSelector((state) => state.productTopRated)
+  const { loading, error, products } = productTopRated
 
-      <Carousel.Item interval={3000}>
-        <img src='./images/keychron.jpg' alt='third slide' className='carousel-image' />
-      </Carousel.Item>
+  useEffect(() => {
+    dispatch(listTopProducts())
+  }, [dispatch])
 
-   
-      <Carousel.Item interval={3000}>
-        <img src='./images/bigBillion.webp' alt='fourth slide' className='carousel-image' />
-      </Carousel.Item>
-
-      <Carousel.Item interval={3000}>
-        <img src='./images/guide.jpg' alt='fifth slide' className='carousel-image' />
-      </Carousel.Item>
-
-      <Carousel.Item interval={3000}>
-        <img
-          src='./images/Electronics.gif'
-          alt='Third slide'
-          className='carousel-image'
-        />
+  return loading ? (
+    <Loader />
+  ) : error ? (
+    <Message variant='danger'>{error}</Message>
+  ) : (
+    <Carousel pause='hover' className='bg-dark'>
+      {products.map((product) => (
+        <Carousel.Item key={product._id}>
+          <Link to={`/product/${product._id}`}>
+            <Image src={product.image} alt={product.name} fluid />
+            <Carousel.Caption className='carousel-caption'>
+              <h2>
+                {product.name} (${product.price})
+              </h2>
+            </Carousel.Caption>
+          </Link>
         </Carousel.Item>
+      ))}
     </Carousel>
   )
 }

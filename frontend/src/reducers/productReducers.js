@@ -16,10 +16,13 @@ export const productListReducer = (state = { products: [] }, action) => {
 
 // 2nd reducer for productDetails page
 // Product has reviews  array contain in it
-export const productDetailsReducer = (state = { product: { reviews: [] } }, action) => {
+export const productDetailsReducer = (
+  state = { product: { reviews: [] } },
+  action
+) => {
   switch (action.type) {
     case 'PRODUCT_DETAILS_REQUEST':
-      return {  ...state , loading: true,}
+      return { ...state, loading: true }
 
     case 'PRODUCT_DETAILS_SUCCESS':
       return { loading: false, product: action.payload }
@@ -97,6 +100,22 @@ export const productCreateReviewReducer = (state = {}, action) => {
 
     case 'PRODUCT_CREATE_REVIEW_RESET':
       return {}
+    default:
+      return state
+  }
+}
+
+export const productTopRatedReducer = (state = { products: [] }, action) => {
+  switch (action.type) {
+    case 'PRODUCT_TOP_REQUEST':
+      return { loading: true, products: [] }
+
+    case 'PRODUCT_TOP_SUCCESS':
+      return { loading: false, products: action.payload }
+
+    case 'PRODUCT_TOP_FAIL':
+      return { loading: false, error: action.payload }
+
     default:
       return state
   }

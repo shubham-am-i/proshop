@@ -8,7 +8,7 @@ const products = [
     category: 'Electronics',
     price: 9000,
     countInStock: 10,
-    rating: 4.5,
+    rating: 3,
     numReviews: 12,
   },
   {
@@ -45,7 +45,7 @@ const products = [
     category: 'Electronics',
     price: 27999,
     countInStock: 5,
-    rating: 4,
+    rating: 5,
     numReviews: 15,
   },
   {
@@ -70,7 +70,7 @@ const products = [
     category: 'Electronics',
     price: 15418,
     countInStock: 3,
-    rating: 5,
+    rating: 3,
     numReviews: 12,
   },
 
@@ -83,7 +83,7 @@ const products = [
     category: 'Electronics',
     price: 92999,
     countInStock: 5,
-    rating: 3,
+    rating: 5,
     numReviews: 12,
   },
   {
@@ -95,7 +95,7 @@ const products = [
     category: 'Electronics',
     price: 499,
     countInStock: 7,
-    rating: 3.5,
+    rating: 5,
     numReviews: 10,
   },
   {
@@ -107,7 +107,7 @@ const products = [
     category: 'Electronics',
     price: 119000,
     countInStock: 6,
-    rating: 5,
+    rating: 3,
     numReviews: 45,
   },
 
@@ -133,7 +133,7 @@ const products = [
     category: 'Electronics',
     price: 70990,
     countInStock: 7,
-    rating: 4.0,
+    rating: 5,
     numReviews: 8,
   },
   {
@@ -157,7 +157,7 @@ const products = [
     category: 'Electronics',
     price: 3999,
     countInStock: 2,
-    rating: 5,
+    rating: 3,
     numReviews: 12,
   },
 ]

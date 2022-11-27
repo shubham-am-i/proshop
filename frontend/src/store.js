@@ -8,6 +8,7 @@ import {
   productDetailsReducer,
   productListReducer,
   productUpdateReducer,
+  productTopRatedReducer,
 } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
 import {
@@ -35,6 +36,7 @@ const reducer = combineReducers({
   productCreate: productCreateReducer,
   productUpdate: productUpdateReducer,
   productCreateReview: productCreateReviewReducer,
+  productTopRated: productTopRatedReducer,
   cart: cartReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -64,7 +66,10 @@ const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
   : {}
 
 const initialState = {
-  cart: { cartItems: cartItemsFromStorage, shippingAddress: shippingAddressFromStorage },
+  cart: {
+    cartItems: cartItemsFromStorage,
+    shippingAddress: shippingAddressFromStorage,
+  },
   userLogin: { userInfo: userInfoFromStorage },
 }
 

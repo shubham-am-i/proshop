@@ -66,7 +66,8 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-  const { name, price, image, brand, category, countInStock, description } = req.body
+  const { name, price, image, brand, category, countInStock, description } =
+    req.body
 
   const product = await Product.findById(req.params.id)
 
@@ -117,7 +118,8 @@ const createProductReview = asyncHandler(async (req, res) => {
     product.numReviews = product.reviews.length
 
     product.rating =
-      product.reviews.reduce((acc, item) => item.rating + acc, 0) / product.reviews.length
+      product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+      product.reviews.length
 
     await product.save()
     res.status(201).json({ message: 'Review added' })
@@ -127,6 +129,14 @@ const createProductReview = asyncHandler(async (req, res) => {
   }
 })
 
+// @desc    Get top rated products
+// @route   GET /api/products/top
+// @access  Public
+const getTopProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({ rating: -1 }).limit(4)
+
+  res.json(products)
+})
 export {
   getProducts,
   getProductById,
@@ -134,4 +144,5 @@ export {
   createProduct,
   updateProduct,
   createProductReview,
+  getTopProducts,
 }
