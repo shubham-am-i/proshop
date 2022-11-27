@@ -27,8 +27,6 @@ const ProductEditScreen = () => {
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
 
-  console.log(product)
-
   const productUpdate = useSelector((state) => state.productUpdate)
   const {
     loading: loadingUpdate,
@@ -73,7 +71,6 @@ const ProductEditScreen = () => {
       setImage(data)
       setUploading(false)
     } catch (error) {
-      console.error(error)
       setUploading(false)
     }
   }
@@ -116,7 +113,8 @@ const ProductEditScreen = () => {
                 type='name'
                 placeholder='enter name'
                 value={name}
-                onChange={(e) => setName(e.target.value)}></Form.Control>
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='price'>
@@ -125,7 +123,8 @@ const ProductEditScreen = () => {
                 type='number'
                 placeholder='enter price'
                 value={price}
-                onChange={(e) => setPrice(e.target.value)}></Form.Control>
+                onChange={(e) => setPrice(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='image'>
@@ -134,7 +133,8 @@ const ProductEditScreen = () => {
                 type='text'
                 placeholder='enter image url'
                 value={image}
-                onChange={(e) => setImage(e.target.value)}></Form.Control>
+                onChange={(e) => setImage(e.target.value)}
+              ></Form.Control>
 
               <Form.Control
                 type='file'
@@ -152,7 +152,8 @@ const ProductEditScreen = () => {
                 type='text'
                 placeholder='enter brand '
                 value={brand}
-                onChange={(e) => setBrand(e.target.value)}></Form.Control>
+                onChange={(e) => setBrand(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='countInStock'>
@@ -161,7 +162,8 @@ const ProductEditScreen = () => {
                 type='number'
                 placeholder='enter countInStock'
                 value={countInStock}
-                onChange={(e) => setCountInStock(e.target.value)}></Form.Control>
+                onChange={(e) => setCountInStock(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='category'>
@@ -170,7 +172,8 @@ const ProductEditScreen = () => {
                 type='text'
                 placeholder='enter category '
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}></Form.Control>
+                onChange={(e) => setCategory(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='description'>
@@ -179,7 +182,8 @@ const ProductEditScreen = () => {
                 type='text'
                 placeholder='enter description '
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}></Form.Control>
+                onChange={(e) => setDescription(e.target.value)}
+              ></Form.Control>
             </Form.Group>
 
             <Button type='submit' variant='primary' className='button'>
