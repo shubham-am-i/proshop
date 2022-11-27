@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import path from 'path'
 import colors from 'colors'
+import morgan from 'morgan'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRoutes.js'
@@ -10,14 +11,11 @@ import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 
 dotenv.config()
-const PORT = process.env.PORT || 5000
-
-connectDB()
-
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
@@ -38,6 +36,13 @@ app.get('*', (req, res) =>
 app.use(notFound)
 app.use(errorHandler)
 
-app.listen(PORT, '0.0.0.0', function () {
-  console.log('Listening on Port 5000')
-})
+const PORT = process.env.PORT || 5000
+
+const bootstrap = async () => {
+  await connectDB()
+  app.listen(PORT, () =>
+    console.log(`Server is running on port ${PORT}`.yellow.bold)
+  )
+}
+
+bootstrap()
