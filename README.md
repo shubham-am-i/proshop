@@ -1,7 +1,7 @@
 # Proshop
 
 
-> eCommerce platform built with the MERN stack & Redux.
+> E-commerce platform built with the MERN stack & Redux.
 ![2022-11-27 (2)](https://user-images.githubusercontent.com/88419331/204145936-0b1a6c11-4ec8-4323-9223-5e2f53c8b0ef.png)
 
 
